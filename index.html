@@ -27,12 +27,13 @@
     <!-- Contenedor para el código de la página -->
     <div class="code-container">
         <div class="tabs">
-            <button onclick="showCode('htmlCode')">HTML</button>
-            <button onclick="showCode('cssCode')">CSS</button>
-            <button onclick="showCode('jsCode')">JavaScript</button>
+            <button data-code="htmlCode">HTML</button>
+            <button data-code="cssCode">CSS</button>
+            <button data-code="jsCode">JavaScript</button>
         </div>
-
-
+        <div id="htmlCode" class="code"></div>
+        <div id="cssCode" class="code"></div>
+        <div id="jsCode" class="code"></div>
     </div>
 
     <script src="script.js"></script>
