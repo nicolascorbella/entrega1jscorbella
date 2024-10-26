@@ -65,12 +65,43 @@ function showCode(id) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora de Edad</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">Hello World</div>
+    <div class="container">
+        <h1>Calculadora de Edad</h1>
+        <form id="ageForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" required>
+            
+            <label for="birthYear">Año de Nacimiento:</label>
+            <input type="number" id="birthYear" required>
+            
+            <button type="submit">Calcular</button>
+        </form>
+
+        <div id="result"></div>
+        <button id="showUsers" style="display: none;">Mostrar Usuarios Registrados</button>
+        <div id="userList" style="display: none;"></div>
+    </div>
+
+    <!-- Contenedor para el código de la página -->
+    <div class="code-container">
+        <div class="tabs">
+            <button data-code="htmlCode">HTML</button>
+            <button data-code="cssCode">CSS</button>
+            <button data-code="jsCode">JavaScript</button>
+        </div>
+        <div id="htmlCode" class="code"></div>
+        <div id="cssCode" class="code"></div>
+        <div id="jsCode" class="code"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-</html>`;
+</html>
+`;
   } else if (id === "cssCode") {
     activeCodeElement.textContent = `* { box-sizing: border-box; }
 body { font-family: Arial, sans-serif; }
