@@ -1,4 +1,3 @@
-// Definimos la clase Persona
 class Persona {
   constructor(nombre, anioNacimiento) {
     this.nombre = nombre;
@@ -15,59 +14,36 @@ class Persona {
   mostrarMensaje() {
     const edad = this.calcularEdad();
     const aniosRestantes = 100 - edad;
-    alert(`Hola ${this.nombre}, te quedan ${aniosRestantes} años de vida.`);
+    return `Hola ${this.nombre}, te quedan ${aniosRestantes} años de vida.`;
   }
 }
 
-// Objetos adicionales
-const intereses = {
-  hobbies: ["leer", "viajar", "cocinar"],
-  deportesFavoritos: ["fútbol", "baloncesto", "natación"],
-  mostrarIntereses() {
-    alert(`Hobbies: ${this.hobbies.join(", ")}\nDeportes favoritos: ${this.deportesFavoritos.join(", ")}`);
-  }
-};
+const usuarios = []; // Array para almacenar las instancias de Persona
 
-const metas = {
-  aCortoPlazo: ["aprender a programar", "leer un libro al mes"],
-  aLargoPlazo: ["viajar a 10 países", "tener una carrera exitosa"],
-  mostrarMetas() {
-    alert(`Metas a corto plazo: ${this.aCortoPlazo.join(", ")}\nMetas a largo plazo: ${this.aLargoPlazo.join(", ")}`);
-  }
-};
+document.getElementById("ageForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevenir el envío del formulario
 
-// Array para almacenar instancias de Persona
-const usuarios = [];
+  // Obtener los valores del formulario
+  const nombreUsuario = document.getElementById("name").value;
+  const anioNacimientoUsuario = parseInt(document.getElementById("birthYear").value);
 
-let continuar = true;
-
-while (continuar) {
-  // Usamos prompt para obtener los datos del usuario
-  const nombreUsuario = prompt("¿Cuál es tu nombre?");
-  const anioNacimientoUsuario = prompt("¿En qué año naciste?");
-
-  // Creamos una nueva instancia de la clase Persona
+  // Crear una nueva instancia de Persona
   const usuario = new Persona(nombreUsuario, anioNacimientoUsuario);
-  usuarios.push(usuario); // Agregamos el usuario al array
+  usuarios.push(usuario); // Agregar al array de usuarios
 
-  // Mostramos el mensaje con el cálculo
-  usuario.mostrarMensaje();
+  // Mostrar el resultado en el HTML
+  const resultDiv = document.getElementById("result");
+  resultDiv.textContent = usuario.mostrarMensaje();
 
-  // Mostramos los intereses y metas al usuario
-  intereses.mostrarIntereses();
-  metas.mostrarMetas();
-
-  // Preguntamos si quiere volver a iniciar la calculadora
-  const respuesta = prompt("¿Quieres calcular otra vez? (sí/no)").toLowerCase();
-  if (respuesta !== "sí") {
-    continuar = false;
-  }
-}
-
-// Mostrar todos los usuarios ingresados
-alert("Usuarios registrados:");
-usuarios.forEach((user, index) => {
-  alert(`Usuario ${index + 1}: ${user.nombre}, nacido en ${user.anioNacimiento}`);
+  // Mostrar el botón para ver los usuarios registrados
+  document.getElementById("showUsers").style.display = "block";
 });
 
-alert("¡Gracias por usar la calculadora de edad!");
+document.getElementById("showUsers").addEventListener("click", function() {
+  const userListDiv = document.getElementById("userList");
+  userListDiv.innerHTML = "<h3>Usuarios Registrados:</h3>";
+  usuarios.forEach((user, index) => {
+    userListDiv.innerHTML += `<p>Usuario ${index + 1}: ${user.nombre}, nacido en ${user.anioNacimiento}</p>`;
+  });
+  userListDiv.style.display = "block";
+});
