@@ -47,13 +47,42 @@ function displayUsers() {
   userListDiv.style.display = "block";
 }
 
-// Function to show code content by tab ID
 function showCode(id) {
+  // Clear all code containers
   document.querySelectorAll(".code").forEach((element) => {
     element.classList.remove("active");
+    element.textContent = ""; // Clear the content of inactive code containers
   });
-  document.getElementById(id).classList.add("active");
+  
+  // Set active code container
+  const activeCodeElement = document.getElementById(id);
+  activeCodeElement.classList.add("active");
+
+  // Insert code content only once in the active code container
+  if (!activeCodeElement.textContent.trim()) {
+    // Add your code content here. Example:
+    if (id === "htmlCode") {
+      activeCodeElement.textContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">Hello World</div>
+</body>
+</html>`;
+    } else if (id === "cssCode") {
+      activeCodeElement.textContent = `* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; }
+.container { background-color: #f0f0f0; padding: 20px; }`;
+    } else if (id === "jsCode") {
+      activeCodeElement.textContent = `console.log("Hello World!");`;
+    }
+  }
 }
+
 
 // Event listeners for form and button
 document.getElementById("ageForm").addEventListener("submit", handleFormSubmit);
