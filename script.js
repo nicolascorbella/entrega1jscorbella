@@ -132,8 +132,16 @@ button:hover { background-color: #234bbf; }
 #result, #userList { margin-top: 20px; font-size: 16px; color: #333; }
 `;
   } else if (id === "jsCode") {
-    activeCodeElement.textContent = "/* Coloca aquí el código de JavaScript */";
-  }
+  fetch("script.js")
+    .then(response => response.text())
+    .then(data => {
+      activeCodeElement.textContent = data;
+    })
+    .catch(error => {
+      console.error("Error al cargar el archivo script.js:", error);
+      activeCodeElement.textContent = "Error al cargar el código JavaScript.";
+    });
+}
 }
 
 document.getElementById("ageForm").addEventListener("submit", handleFormSubmit);
