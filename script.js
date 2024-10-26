@@ -16,15 +16,19 @@ class Persona {
   }
 }
 
-// Array to store user data
 const usuarios = [];
 
-// Function to handle form submission
 function handleFormSubmit(event) {
   event.preventDefault();
 
   const nombreUsuario = document.getElementById("name").value;
   const anioNacimientoUsuario = parseInt(document.getElementById("birthYear").value);
+
+  const anioActual = new Date().getFullYear();
+  if (anioNacimientoUsuario > anioActual || anioNacimientoUsuario < 1900) {
+    alert("Por favor, ingrese un año de nacimiento válido.");
+    return;
+  }
 
   const usuario = new Persona(nombreUsuario, anioNacimientoUsuario);
   usuarios.push(usuario);
@@ -35,7 +39,6 @@ function handleFormSubmit(event) {
   document.getElementById("showUsers").style.display = "block";
 }
 
-// Function to display registered users
 function displayUsers() {
   const userListDiv = document.getElementById("userList");
   userListDiv.innerHTML = "<h3>Usuarios Registrados:</h3>";
@@ -48,17 +51,14 @@ function displayUsers() {
 }
 
 function showCode(id) {
-  // Hide and clear all code containers
   document.querySelectorAll(".code").forEach((element) => {
     element.classList.remove("active");
-    element.textContent = ""; // Clear previous content
+    element.textContent = "";
   });
 
-  // Set active code container and load content
   const activeCodeElement = document.getElementById(id);
   activeCodeElement.classList.add("active");
 
-  // Load content into the active code container
   if (id === "htmlCode") {
     activeCodeElement.textContent = `<!DOCTYPE html>
 <html lang="en">
@@ -80,7 +80,11 @@ body { font-family: Arial, sans-serif; }
   }
 }
 
-
-// Event listeners for form and button
 document.getElementById("ageForm").addEventListener("submit", handleFormSubmit);
 document.getElementById("showUsers").addEventListener("click", displayUsers);
+
+document.querySelectorAll(".tabs button").forEach((button) => {
+  button.addEventListener("click", () => {
+    showCode(button.getAttribute("data-code"));
+  });
+});
