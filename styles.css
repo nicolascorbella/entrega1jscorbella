@@ -10,6 +10,7 @@ body {
     min-height: 100vh;
     background-color: #f0f0f0;
     margin: 0;
+    flex-direction: column;
 }
 
 .container {
@@ -19,6 +20,7 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -59,4 +61,44 @@ button:hover {
     margin-top: 20px;
     font-size: 16px;
     color: #333;
+}
+
+/* Estilos para el contenedor de código */
+.code-container {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    background-color: #444;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.tabs button:hover {
+    background-color: #555;
+}
+
+.code {
+    display: none;
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin-top: 10px;
+}
+
+.code.active {
+    display: block;
 }
