@@ -16,9 +16,11 @@ class Persona {
   }
 }
 
+// Array to store user data
 const usuarios = [];
 
-document.getElementById("ageForm").addEventListener("submit", function(event) {
+// Function to handle form submission
+function handleFormSubmit(event) {
   event.preventDefault();
 
   const nombreUsuario = document.getElementById("name").value;
@@ -31,20 +33,28 @@ document.getElementById("ageForm").addEventListener("submit", function(event) {
   resultDiv.textContent = usuario.mostrarMensaje();
 
   document.getElementById("showUsers").style.display = "block";
-});
+}
 
-document.getElementById("showUsers").addEventListener("click", function() {
+// Function to display registered users
+function displayUsers() {
   const userListDiv = document.getElementById("userList");
   userListDiv.innerHTML = "<h3>Usuarios Registrados:</h3>";
   usuarios.forEach((user, index) => {
-    userListDiv.innerHTML += `<p>Usuario ${index + 1}: ${user.nombre}, nacido en ${user.anioNacimiento}</p>`;
+    const userInfo = document.createElement("p");
+    userInfo.textContent = `Usuario ${index + 1}: ${user.nombre}, nacido en ${user.anioNacimiento}`;
+    userListDiv.appendChild(userInfo);
   });
   userListDiv.style.display = "block";
-});
+}
 
+// Function to show code content by tab ID
 function showCode(id) {
   document.querySelectorAll(".code").forEach((element) => {
     element.classList.remove("active");
   });
   document.getElementById(id).classList.add("active");
 }
+
+// Event listeners for form and button
+document.getElementById("ageForm").addEventListener("submit", handleFormSubmit);
+document.getElementById("showUsers").addEventListener("click", displayUsers);
