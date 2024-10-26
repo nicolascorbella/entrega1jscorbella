@@ -57,42 +57,15 @@ function showCode(id) {
 
   const activeCodeElement = document.getElementById(id);
   activeCodeElement.classList.add("active");
-
-  if (id === "htmlCode") {
-    activeCodeElement.textContent = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Edad</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Calculadora de Edad</h1>
-    <form id="ageForm">
-      <label for="name">Nombre:</label>
-      <input type="text" id="name" required>
-      <label for="birthYear">Año de Nacimiento:</label>
-      <input type="number" id="birthYear" required>
-      <button type="submit">Calcular</button>
-    </form>
-    <div id="result"></div>
-    <button id="showUsers" style="display: none;">Mostrar Usuarios Registrados</button>
-    <div id="userList" style="display: none;"></div>
-  </div>
-</body>
-</html>`;
- } else if (id === "cssCode") {
-  fetch("styles.css")
+if (id === "htmlCode") {
+  fetch("index.html")
     .then(response => response.text())
     .then(data => {
       activeCodeElement.textContent = data;
     })
     .catch(error => {
-      console.error("Error al cargar el archivo styles.css:", error);
-      activeCodeElement.textContent = "Error al cargar el código CSS.";
+      console.error("Error al cargar el archivo index.html:", error);
+      activeCodeElement.textContent = "Error al cargar el código HTML.";
     });
 }
 else if (id === "jsCode") {
