@@ -84,54 +84,18 @@ function showCode(id) {
   </div>
 </body>
 </html>`;
-  } else if (id === "cssCode") {
-    activeCodeElement.textContent = `
-/* Estilos generales */
-* { box-sizing: border-box; }
-body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f0f0f0;
-  margin: 0;
+ } else if (id === "cssCode") {
+  fetch("styles.css")
+    .then(response => response.text())
+    .then(data => {
+      activeCodeElement.textContent = data;
+    })
+    .catch(error => {
+      console.error("Error al cargar el archivo styles.css:", error);
+      activeCodeElement.textContent = "Error al cargar el código CSS.";
+    });
 }
-.container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-  width: 100%;
-  margin-top: 80px;
-}
-h1 {
-  font-size: 24px;
-  color: #333;
-  text-align: center;
-}
-input {
-  width: 100%;
-  padding: 8px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #305EF2;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-button:hover { background-color: #234bbf; }
-#result, #userList { margin-top: 20px; font-size: 16px; color: #333; }
-`;
-  } else if (id === "jsCode") {
+else if (id === "jsCode") {
   fetch("script.js")
     .then(response => response.text())
     .then(data => {
