@@ -73,7 +73,7 @@ button:hover {
     width: 70%;
     border-radius: 8px;
     margin-top: 20px;
-    min-height: 70%;
+
 }
 
 .tabs {
@@ -99,7 +99,7 @@ button:hover {
     font-family: monospace;
     white-space: pre-wrap;
     margin-top: 10px;
-    min-height: 200px; /* Mantiene el contenedor con la misma altura */
+       min-height: 70%;
 }
 
 .code.active {
