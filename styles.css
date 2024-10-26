@@ -75,6 +75,7 @@ button:hover {
     border-radius: 8px;
     margin-top: 20px;
 height: 70%;
+    margin-bottom: 2em;
 }
 
 .tabs {
