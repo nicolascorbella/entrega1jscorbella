@@ -103,11 +103,112 @@ function showCode(id) {
 </html>
 `;
   } else if (id === "cssCode") {
-    activeCodeElement.textContent = `* { box-sizing: border-box; }
-body { font-family: Arial, sans-serif; }
-.container { background-color: #f0f0f0; padding: 20px; }`;
-  } else if (id === "jsCode") {
-    activeCodeElement.textContent = `console.log("Hello World!");`;
+    activeCodeElement.textContent = `/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    flex-direction: column;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 80px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+label {
+    font-size: 16px;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #305EF2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #234bbf;
+}
+
+#result, #userList {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilos para el contenedor de código */
+.code-container {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    width: 70%;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    background-color: #444;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.tabs button:hover {
+    background-color: #555;
+}
+
+.code {
+    display: none;
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin-top: 10px;
+    min-height: 200px; /* Mantiene el contenedor con la misma altura */
+}
+
+.code.active {
+    display: block;
+}`;
   }
 }
 
