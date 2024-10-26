@@ -67,7 +67,18 @@ if (id === "htmlCode") {
       console.error("Error al cargar el archivo index.html:", error);
       activeCodeElement.textContent = "Error al cargar el código HTML.";
     });
+} else if (id === "cssCode") {
+  fetch("styles.css")
+    .then(response => response.text())
+    .then(data => {
+      activeCodeElement.textContent = data;
+    })
+    .catch(error => {
+      console.error("Error al cargar el archivo styles.css:", error);
+      activeCodeElement.textContent = "Error al cargar el código CSS.";
+    });
 }
+
 else if (id === "jsCode") {
   fetch("script.js")
     .then(response => response.text())
