@@ -48,21 +48,19 @@ function displayUsers() {
 }
 
 function showCode(id) {
-  // Clear all code containers
+  // Hide and clear all code containers
   document.querySelectorAll(".code").forEach((element) => {
     element.classList.remove("active");
-    element.textContent = ""; // Clear the content of inactive code containers
+    element.textContent = ""; // Clear previous content
   });
-  
-  // Set active code container
+
+  // Set active code container and load content
   const activeCodeElement = document.getElementById(id);
   activeCodeElement.classList.add("active");
 
-  // Insert code content only once in the active code container
-  if (!activeCodeElement.textContent.trim()) {
-    // Add your code content here. Example:
-    if (id === "htmlCode") {
-      activeCodeElement.textContent = `<!DOCTYPE html>
+  // Load content into the active code container
+  if (id === "htmlCode") {
+    activeCodeElement.textContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -73,13 +71,12 @@ function showCode(id) {
     <div class="container">Hello World</div>
 </body>
 </html>`;
-    } else if (id === "cssCode") {
-      activeCodeElement.textContent = `* { box-sizing: border-box; }
+  } else if (id === "cssCode") {
+    activeCodeElement.textContent = `* { box-sizing: border-box; }
 body { font-family: Arial, sans-serif; }
 .container { background-color: #f0f0f0; padding: 20px; }`;
-    } else if (id === "jsCode") {
-      activeCodeElement.textContent = `console.log("Hello World!");`;
-    }
+  } else if (id === "jsCode") {
+    activeCodeElement.textContent = `console.log("Hello World!");`;
   }
 }
 
