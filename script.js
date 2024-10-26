@@ -210,7 +210,7 @@ button:hover {
     display: block;
 }`;
   }
-   else if (id === "jsCode") {`class Persona {
+   else if (id === "jsCode") {activeCodeElement.textContent =`class Persona {
   constructor(nombre, anioNacimiento) {
     this.nombre = nombre;
     this.anioNacimiento = anioNacimiento;
@@ -224,7 +224,7 @@ button:hover {
   mostrarMensaje() {
     const edad = this.calcularEdad();
     const aniosRestantes = 100 - edad;
-    return `Hola ${this.nombre}, te quedan ${aniosRestantes} años de vida.`;
+    return `Hola /$/{this.nombre}, te quedan ${aniosRestantes} años de vida.`;
   }
 }
 
@@ -280,10 +280,10 @@ function showCode(id) {
     <title>Document</title>
 </head>
 <body>
-    <div class="container">Hello World</div>
+   ` <div class="container">Hello World</div>
 </body>
 </html>`;
-  } else if (id === "cssCode") {
+` } else if (id === "cssCode") {
     activeCodeElement.textContent = `* { box-sizing: border-box; }
 body { font-family: Arial, sans-serif; }
 .container { background-color: #f0f0f0; padding: 20px; }`;
@@ -298,8 +298,8 @@ document.getElementById("showUsers").addEventListener("click", displayUsers);
 document.querySelectorAll(".tabs button").forEach((button) => {
   button.addEventListener("click", () => {
     showCode(button.getAttribute("data-code"));
-  });
-});
+  })
+})
 `
 }
 
