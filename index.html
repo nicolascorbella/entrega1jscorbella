@@ -24,6 +24,32 @@
         <div id="userList" style="display: none;"></div>
     </div>
 
+    <!-- Contenedor para el código de la página -->
+    <div class="code-container">
+        <div class="tabs">
+            <button onclick="showCode('htmlCode')">HTML</button>
+            <button onclick="showCode('cssCode')">CSS</button>
+            <button onclick="showCode('jsCode')">JavaScript</button>
+        </div>
+        <pre id="htmlCode" class="code active">
+&lt;!-- HTML Code --&gt;
+&lt;div class="container"&gt;
+    &lt;h1&gt;Calculadora de Edad&lt;/h1&gt;
+    &lt;!-- Formulario para ingreso de datos --&gt;
+    ...
+&lt;/div&gt;
+</pre>
+        <pre id="cssCode" class="code">
+/* CSS Code */
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; ... }
+</pre>
+        <pre id="jsCode" class="code">
+/* JavaScript Code */
+class Persona { constructor(nombre, anioNacimiento) { ... } }
+</pre>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
